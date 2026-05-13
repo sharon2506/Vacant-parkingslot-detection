@@ -3,5 +3,3 @@ opencv-python
 streamlit
 numpy
 Pillow
-streamlit-drawable-canvas
-    
