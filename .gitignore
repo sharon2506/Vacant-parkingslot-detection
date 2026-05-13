@@ -3,3 +3,8 @@
 uploads/
 __pycache__/
 venv/
+.DS_Store
+
+
+*.mp4
+*.pt
