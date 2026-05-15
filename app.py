@@ -1,12 +1,11 @@
-def make_report(summary, events, dwell_times, session_start):
-    total = summary.get("total", 0)
-    free  = summary.get("free", 0)
-    occ   = summary.get("occ", 0)
+if st.session_state.stage == "splash":
+    st.markdown("""
+    <div class="splash-wrap">
+      <div class="splash-icon">🚗</div>
+      <div class="splash-title">ParkVision Pro</div>
+    </div>
+    """, unsafe_allow_html=True)
 
-    from reportlab.platypus import SimpleDocTemplate, Paragraph
-
-    buf = io.BytesIO()
-
-    doc = SimpleDocTemplate(buf)
-
-    return buf.read(), "application/pdf", "parkvision_report.pdf"
+    if st.button("🚀 Start Parking Space Detection"):
+        st.session_state.stage = "upload"
+        st.rerun()
