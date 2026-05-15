@@ -1,11 +1,22 @@
-elif st.session_state.stage == "draw":
+elif st.session_state.stage == "calibrate":
 
+    zones = st.session_state.slots
     frame = st.session_state.first_frame
 
-    st.components.v1.html(full_html, height=800)
+    preview_slots = zones_to_slots(zones, frame, scale)
 
-    mj = st.text_area(
-        "",
-        height=60,
-        placeholder='[{"x1":100,"y1":50}]'
-    )
+    if st.button("🔧 Run Calibration & Start Detection"):
+
+        cap = cv2.VideoCapture(st.session_state.video_path)
+
+        frames_gray = []
+
+        while len(frames_gray) < 120:
+            ret, f = cap.read()
+
+            if not ret:
+                break
+
+            frames_gray.append(
+                cv2.cvtColor(f, cv2.COLOR_BGR2GRAY)
+            )
