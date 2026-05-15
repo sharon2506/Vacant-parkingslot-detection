@@ -19,24 +19,40 @@ session reports
 Features:
 
 YOLOv8-based vehicle detection
+
 Real-time parking monitoring
+
 Glowing vacant slot visualization
+
 Occupied slot detection
+
 Live occupancy analytics
+
 Parking lot full alerts
+
 Automatic PDF report generation
+
 Smart background reference calibration
+
 Vehicle dwell time tracking
+
 Interactive parking slot drawing UI
+
 Peak occupancy analytics
 
 
 Technologies Used:
 
 Python
+
 OpenCV
+
 Streamlit
+
 YOLOv8
+
 NumPy
+
 ReportLab
+
 Ultralytics
