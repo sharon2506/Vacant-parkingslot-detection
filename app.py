@@ -1,22 +1,29 @@
-elif st.session_state.stage == "calibrate":
+elif st.session_state.stage == "detect":
 
-    zones = st.session_state.slots
-    frame = st.session_state.first_frame
+    model = load_model()
 
-    preview_slots = zones_to_slots(zones, frame, scale)
+    slots = st.session_state.slots
 
-    if st.button("🔧 Run Calibration & Start Detection"):
+    cap = cv2.VideoCapture(st.session_state.video_path)
 
-        cap = cv2.VideoCapture(st.session_state.video_path)
+    while True:
 
-        frames_gray = []
+        ret, frame = cap.read()
 
-        while len(frames_gray) < 120:
-            ret, f = cap.read()
+        if not ret:
+            break
 
-            if not ret:
-                break
+        boxes = detect_vehicles_yolo(frame, model)
 
-            frames_gray.append(
-                cv2.cvtColor(f, cv2.COLOR_BGR2GRAY)
+        for sid, slot in slots.items():
+
+            yolo_occ, overlap = check_slot_yolo(
+                slot,
+                boxes,
+                frame.shape[1],
+                frame.shape[0]
             )
+
+            slot["occupied"] = yolo_occ
+
+        
