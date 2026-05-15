@@ -4,11 +4,16 @@ Real-time intelligent parking slot detection system using YOLOv8, OpenCV, and St
 
 Detects:
 
-Vacant parking slots 
+Vacant parking slots
+
 Occupied parking slots 
+
 Live vehicle movement 
+
 Parking occupancy percentage 
+
 Parking events & dwell time 
+
 session reports 
 
 Features:
