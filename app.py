@@ -1,19 +1,11 @@
-elif st.session_state.stage == "upload":
+elif st.session_state.stage == "draw":
 
-    up = st.file_uploader(
+    frame = st.session_state.first_frame
+
+    st.components.v1.html(full_html, height=800)
+
+    mj = st.text_area(
         "",
-        type=["mp4", "avi", "mov", "mkv"]
+        height=60,
+        placeholder='[{"x1":100,"y1":50}]'
     )
-
-    if up:
-        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=".mp4")
-
-        tmp.write(up.read())
-
-        cap = cv2.VideoCapture(tmp.name)
-
-        ret, frame = cap.read()
-
-        if ret:
-            st.session_state.video_path = tmp.name
-            st.session_state.first_frame = frame.copy()
