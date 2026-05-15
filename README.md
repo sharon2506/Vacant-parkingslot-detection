@@ -1,12 +1,11 @@
-VACANT PARKING SLOT DETECTION USING YOLOV8
+VACANT PARKING SLOT DETECTION 
 
 Real-time intelligent parking slot detection system using YOLOv8, OpenCV, and Streamlit.
 
 Detects:
 
-Vacant parking slots
-
-Occupied parking slots 
+- Vacant parking slots
+- Occupied parking slots 
 
 Live vehicle movement 
 
