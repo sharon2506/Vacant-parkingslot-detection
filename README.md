@@ -1,6 +1,6 @@
 VACANT PARKING SLOT DETECTION 
 
-Real-time intelligent parking slot detection system using YOLOv8, OpenCV, and Streamlit.
+- This project is a real-time Smart Parking Detection System developed using Python, OpenCV, YOLO, and Streamlit. The system analyzes parking area video footage to detect vehicles and identify vacant and occupied parking slots automatically. It provides a modern interactive dashboard that displays total parking spaces, occupied slots, and available slots in real time. The project is designed to simulate practical parking management solutions used in malls, offices, and smart city environments. It helps improve parking efficiency, reduce manual monitoring, and demonstrate the implementation of computer vision in real-world applications.
 
 Detects:
 
