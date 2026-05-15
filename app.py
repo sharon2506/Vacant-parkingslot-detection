@@ -1,9 +1,21 @@
-for k, v in dict(
-    slots={}, video_path=None, first_frame=None,
-    ref_frame=None, stage="splash", scale=1.0,
-    show_summary=False, summary={}, calib_done=False,
-    events=[], slot_entry_times={}, dwell_times=[],
-    occ_history=[], max_cars_seen=0, session_start=None,
-).items():
-    if k not in st.session_state:
-        st.session_state[k] = v
+def stepbar(cur):
+    labels = ["Upload", "Draw Slots", "Calibrate", "Detect"]
+    h = '<div class="stepbar">'
+    for i, l in enumerate(labels, 1):
+        cls  = "done" if i < cur else ("active" if i == cur else "stp")
+        icon = "✓" if i < cur else str(i)
+        h += f'<div class="stp {cls}"><div class="stp-n">{icon}</div>{l}</div>'
+    h += '</div>'
+    st.markdown(h, unsafe_allow_html=True)
+
+
+def show_topbar(live=False):
+    pill = '<div class="live-pill">● LIVE</div>' if live else ''
+    st.markdown(f"""
+    <div class="topbar">
+      <div class="topbar-icon">🚗</div>
+      <div>
+        <p class="topbar-title">ParkVision Pro</p>
+      </div>
+      {pill}
+    </div>""", unsafe_allow_html=True)
